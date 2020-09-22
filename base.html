@@ -1,0 +1,50 @@
+{# Load the tag library #}{% load bootstrap4 %}{% bootstrap_css %} {% bootstrap_messages %} {% load static %}
+
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <title>GSoC Contribution Leaderboard</title>
+  <style type="text/css">
+    body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 100%;
+    }
+    
+    #github {
+      filter: invert(100%);
+    }
+  </style>
+  {% block head-css %}
+  <link rel="shortcut icon" href="{{ ORG_LOGO }}" type="image/x-icon" /> {% endblock %}
+</head>
+
+<body>
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-sm">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url 'gsoclist' %}"><img src="{{ ORG_LOGO }}"
+        height="42" width="42" style="margin-right: 12px">GSoC Contribution Leaderboard</a>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" id="github" href="https://github.com/shubhsherl/GSoC-Contribution-Leaderboard/" target="_blank" rel="noopener noreferrer">
+          <img src="img/github_mark_light.png" height="42" width="42">
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <br><br><br><br>
+  <hr> {% block content %} {% endblock %}
+  <hr>
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <span class="text-muted">
+        <a href="{{ ORG_SITE }}" target="_blank" rel="noopener noreferrer">{{ORG_SITE}}</a> |
+        <a href="https://github.com/{{ORG}}" target="_blank" rel="noopener noreferrer">GitHub ({{ORG}})</a>
+      </span>
+    </div>
+  </footer>
+</body>
+
+</html>
