@@ -13,7 +13,7 @@ install:
 script: pytest # run tests
 after_success:
   - codecov # submit coverage
-  matrix:
+matrix:
   include:
   - python: 2.7
     PARALLELIZE=false
