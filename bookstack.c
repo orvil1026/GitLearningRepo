@@ -1,135 +1,108 @@
 
 /* Stack implementation using Array*/
-#include<stdlib.h>
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define size 5
-int top=-1;
-
+int top = -1;
 
 typedef struct {
-    char name[50];
-    int pages;
-    float price;
-
+  char name[50];
+  int pages;
+  float price;
 
 } book;
 
-book stack[size]
-void show(book val);
+book stack[size] void show(book val);
 void pop();
 void peep();
 void display();
 book getbook();
 void push(book val);
 
+int main() {
+  int choice;
+  int val;
 
-int main()
-{
-    int choice;
-    int val;
+  while (1) {
+    printf("\n1. Push  2. Pop  3. Peep  4. Display  5. Exit\n Enter your  "
+           "choice:");
+    scanf("%d", &choice);
 
+    switch (choice) {
+    case 1:
 
-    while(1)
-    {
-        printf("\n1. Push  2. Pop  3. Peep  4. Display  5. Exit\n Enter your  choice:");
-        scanf("%d",&choice);
-
-        switch(choice)
-        {
-        case 1:
-
-            push(getbook());
-            break;
-        case 2:
-            pop();
-            break;
-        case 3:
-            peep();
-            break;
-        case 4:
-            display();
-            break;
-        case 5:
-            exit(0);
-        default:
-            printf("Enter valid choice!!\n");
-
-        }
+      push(getbook());
+      break;
+    case 2:
+      pop();
+      break;
+    case 3:
+      peep();
+      break;
+    case 4:
+      display();
+      break;
+    case 5:
+      exit(0);
+    default:
+      printf("Enter valid choice!!\n");
     }
-    return 0
-
+  }
+  return 0
 }
 
-void show(book val)
-{
-    printf("\nBook Name:%s\nNo. of pages:%d\nPrice:%f\n",val.name,val.pages,val.price);
+void show(book val) {
+  printf("\nBook Name:%s\nNo. of pages:%d\nPrice:%f\n", val.name, val.pages,
+         val.price);
 }
 
-void push(book val)
-{
-    if(top==size-1)
-    {
-        printf("\nStack Full!!\n");
-    }
-    else
-    {
-        top++;
-        stack[top]=val;
-    }
+void push(book val) {
+  if (top == size - 1) {
+    printf("\nStack Full!!\n");
+  } else {
+    top++;
+    stack[top] = val;
+  }
 }
 
-void pop()
-{
+void pop() {
 
-    if(top==-1)
-    {
-        printf("\nStack Empty!!\n");
+  if (top == -1) {
+    printf("\nStack Empty!!\n");
 
-
-    }
-    else
-    {
-        show((stack[top]));
-        top--;
-    }
+  } else {
+    show((stack[top]));
+    top--;
+  }
 }
-void peep()
-{
-    int val;
-    if(top==-1)
-    {
-        printf("\nStack Empty!!\n");
-    }
-    else
-    {
-        show(stack[top]);
-
-    }
+void peep() {
+  int val;
+  if (top == -1) {
+    printf("\nStack Empty!!\n");
+  } else {
+    show(stack[top]);
+  }
 }
-void display()
-{   int i;
-    if(top==-1)
-    {
+void display() {
+  int i;
+  if (top == -1) {
 
-        printf("\nStack Empty!!\n");
+    printf("\nStack Empty!!\n");
+  } else {
+    printf("\nStack elements:\n");
+    for (i = top; i >= 0; i--) {
+      show(stack[i]);
     }
-    else
-    {   printf("\nStack elements:\n");
-        for(i=top; i>=0; i--)
-        {
-            show(stack[i]);
-        }
-    }
+  }
 }
-book getbook()
-{
-    book b;
-    gets(b.name);
-    printf("Enter the name of the book:");
-    gets(b.name);
-    printf("Enter the no. of pages:");
-    scanf("%d",&b.pages);
-    printf("Enter the price:");
-    scanf("%f",&b.price);
-    return b;
+book getbook() {
+  book b;
+  gets(b.name);
+  printf("Enter the name of the book:");
+  gets(b.name);
+  printf("Enter the no. of pages:");
+  scanf("%d", &b.pages);
+  printf("Enter the price:");
+  scanf("%f", &b.price);
+  return b;
 }
