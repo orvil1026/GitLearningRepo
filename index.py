@@ -13,7 +13,7 @@ len_s = len(s)
 
 for i in n:
     if (i < len_s):
-        if (ss in  s[:i+1]):
+        if (ss in s[:i+1]):
             print(1)
         else:
             print(0)
@@ -24,18 +24,14 @@ for i in n:
         # final = s
         while(d >= len_s):
             if(d <= len_s):
-                s +=  s[:d]
+                s += s[:d]
             else:
                 s += s
                 d -= len_s
-        s += s[:d]   
-        
+        s += s[:d]
 
-
-        if (ss in s ):
-            counter = s.count(ss) 
+        if (ss in s):
+            counter = s.count(ss)
             print(counter)
         else:
             print(0)
-
-
