@@ -13,7 +13,7 @@ len_s = len(s)
 
 for i in n:
     if i < len_s:
-        if ss in s[: i + 1]:
+        if ss in s[:i + 1]:
             print(1)
         else:
             print(0)
